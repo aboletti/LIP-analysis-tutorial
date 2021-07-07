@@ -45,7 +45,7 @@ void dimuons()
   a.FitPeakRoofit();
 
   // Optional: you can try to fit with ROOT and compare the yield results
-  a.FitPeak();
+  // a.FitPeak();
 
 
 }
