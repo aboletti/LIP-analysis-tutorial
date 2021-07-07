@@ -36,7 +36,7 @@ Set the value of `a._sdig` to the day of your birthday (i.e. the day of the mont
 
 Run the default configuration of the code
 ```bash
-root dimuons.C
+root -b -q dimuons.C
 ```
 and check the output graphs and note down the fit results.
 
