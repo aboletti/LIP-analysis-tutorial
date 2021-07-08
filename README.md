@@ -54,17 +54,19 @@ Pay attention to the quality of the fit with each function and how the signal yi
 
 Until now, you worked only with the J/psi peak, but other ones are present in our spectrum.
 
-Choose a different peak and adapt the code to fit it (note that the Upsilon peaks are more challenging since they have to be fitted all three in the same fit).
+Choose a different peak and adapt the code to fit it (by [setting the appropriate mass range](dimuons.C#L37-L41)). Note that the Upsilon peaks are more challenging since they have to be fitted all three in the same fit.
 
-Try also here different functions to find the one that better describes the peak.
+Try also here different functions to find the one that better describes your peak.
 
 ## Step 3: yield measurement in bins of transverse momentum
 
 So far, you have measured the signal yield inclusively for the all sample. However, one interesting improvement is measuring the differential yield as a function of one particular variable (which can be used to measure a differential cross-section or branching ratio). This is obtained by splitting the sample in bins of that variable and for each bin computing the ratio between the yield and the size of the bin.
 
-Adapt the code to compute the differential yield of the peak you have chosen in _step 2_, as a function of the transverse momentum of the dimuon candidate. Use the full statistics of the sample for this exercise, and define yourself the binning to be used: it should cover the entire spectrum of the dimuon transverse momentum, it should be uneven (narrow bins where there is a high density of events, larger bins where the density is lower), and it should have at least 5 bins (but if your peak has a lot of events, you can try a larger number).
+Start by drawing the distribution of the transverse momentum of the dimuon candidate, for the events present in the mass region you have chosen in _step 2_. Divide this distribution in a set of bins to use for your measurement; you are free to define the binning that you prefer, but try to follow these guidelines: it should cover the entire spectrum of the dimuon transverse momentum, it should be uneven (narrow bins where there is a high density of events, larger bins where the density is lower), and it should have at least 5 bins (but if your peak has a lot of events, you can try a larger number).
 
-Finally, create a graph with the dimuon transverse momentum on the x-axis, the measured yield divided by bin size on the y-axis.
+Then, add to the code a selection on the transverse momentum of the dimuon candidate, and measure the yield of your peak only in this region.
+
+Finally, measure the yield for every single bin and create a graph with the dimuon transverse momentum on the x-axis, the measured yield divided by bin size on the y-axis.
 
 ## Bonus step: unbinned fit
 
