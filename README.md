@@ -1,6 +1,6 @@
 # Tutorial on data analysis and fitting with ROOT for the LIP Internship Program
 
-## Preparation
+## Preparation (for students with access to LIP computing resources)
 
 #### Clone code repository
 Clone this repository in your current folder with
