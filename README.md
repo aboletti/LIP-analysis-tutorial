@@ -47,7 +47,7 @@ Optional: the code contains also a function to fit using standard ROOT objects (
 The current fit uses a [Gaussian function](dimuons.C#L189-L192) as signal model and an [exponential](dimuons.C#L185-L187) as background model. This is not always enough to describe the peaks we are going to fit.
 On the J/psi peak, the bad description is more evident if you fit the full sample (setting `a._sdig = -1`, try it).
 
-Try different functions both for the signal model (like [Crystal-Ball](https://root.cern.ch/doc/master/classRooCrystalBall.html), [Breit-Wigner](https://root.cern.ch/doc/master/classRooBreitWigner.html), or the sum of two Gaussian functions), and for the background model (like a 1st or 2nd degree [polynomial](https://root.cern.ch/doc/master/classRooPolynomial.html)).
+Try different functions both for the signal model (like [Crystal-Ball](https://root.cern.ch/doc/master/classRooCBShape.html), [Breit-Wigner](https://root.cern.ch/doc/master/classRooBreitWigner.html), or the sum of two Gaussian functions), and for the background model (like a 1st or 2nd degree [polynomial](https://root.cern.ch/doc/master/classRooPolynomial.html)).
 Pay attention to the quality of the fit with each function and how the signal yield varies.
 
 ## Step 2: fit of a different peak
