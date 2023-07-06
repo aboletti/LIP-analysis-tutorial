@@ -27,7 +27,18 @@ module load root
 mkdir plots
 ```
 
-## Step 0: test and familiarize with the code
+## Step 0: open the data file and check its content
+
+```bash
+root Skim4.root
+```
+The TTree contains a set of [TLorentzVector](https://root.cern.ch/doc/master/classTLorentzVector.html), one for each muon, and one that os obtained somming the other two. Try to plot the dimuon invariant mass spectrum with:
+```cpp
+oniaTree->Draw("dimuon_p4.M()")
+```
+How can we improve this plot?
+
+## Step 1: test and familiarize with the code
 
 Check the code, trying to understand its structure.
 Detailed information about any ROOT or RooFit class can be found in the reference manual, looking for the class name in [this list](https://root.cern/doc/master/classes.html), or simply writing the class name in a search engine.
@@ -42,7 +53,7 @@ and check the output graphs and note down the fit results.
 
 Optional: the code contains also a function to fit using standard ROOT objects (without RooFit). This is commented by default. You can try to run it (now, and also for the following steps) to compare the results of the fits. In any case, we will consider the RooFit results as the official ones.
 
-## Step 1: variations in fit models
+## Step 2: variations in fit models
 
 The current fit uses a [Gaussian function](dimuons.C#L189-L192) as signal model and an [exponential](dimuons.C#L185-L187) as background model. This is not always enough to describe the peaks we are going to fit.
 On the J/psi peak, the bad description is more evident if you fit the full sample (setting `a._sdig = -1`, try it).
@@ -50,7 +61,7 @@ On the J/psi peak, the bad description is more evident if you fit the full sampl
 Try different functions both for the signal model (like [Crystal-Ball](https://root.cern.ch/doc/master/classRooCBShape.html), [Breit-Wigner](https://root.cern.ch/doc/master/classRooBreitWigner.html), or the sum of two Gaussian functions), and for the background model (like a 1st or 2nd degree [polynomial](https://root.cern.ch/doc/master/classRooPolynomial.html)).
 Pay attention to the quality of the fit with each function and how the signal yield varies.
 
-## Step 2: fit of a different peak
+## Step 3: fit of a different peak
 
 Until now, you worked only with the J/psi peak, but other ones are present in our spectrum.
 
@@ -58,7 +69,11 @@ Choose a different peak and adapt the code to fit it (by [setting the appropriat
 
 Try also here different functions to find the one that better describes your peak.
 
-## Step 3: yield measurement in bins of transverse momentum
+## Bonus step: unbinned fit
+
+Adapt the code to perform an unbinned fits (using a [RooDataSet](https://root.cern.ch/doc/master/classRooDataSet.html)) instead of binned ones.
+
+## Bonus step 2: yield measurement in bins of transverse momentum
 
 So far, you have measured the signal yield inclusively for the all sample. However, one interesting improvement is measuring the differential yield as a function of one particular variable (which can be used to measure a differential cross-section or branching ratio). This is obtained by splitting the sample in bins of that variable and for each bin computing the ratio between the yield and the size of the bin.
 
@@ -67,9 +82,3 @@ Start by drawing the distribution of the transverse momentum of the dimuon candi
 Then, add to the code a selection on the transverse momentum of the dimuon candidate, and measure the yield of your peak only in this region.
 
 Finally, measure the yield for every single bin and create a graph with the dimuon transverse momentum on the x-axis, the measured yield divided by bin size on the y-axis.
-
-## Bonus step: unbinned fit
-
-Adapt the code to perform an unbinned fits (using a [RooDataSet](https://root.cern.ch/doc/master/classRooDataSet.html)) instead of binned ones.
-
-
